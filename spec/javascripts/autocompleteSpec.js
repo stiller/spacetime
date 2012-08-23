@@ -25,7 +25,6 @@ describe("Autocomplete widget", function() {
 
     it("gives the hidden field the correct value", function() {
       expect(this.hiddenField).toHaveAttr("value", "1,3");
-    
+    }); 
   });
-
 });
