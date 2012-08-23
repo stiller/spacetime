@@ -27,4 +27,24 @@ describe("Autocomplete widget", function() {
       expect(this.hiddenField).toHaveAttr("value", "1,3");
     }); 
   });
+
+  describe("sets up the expected input element", function() {
+    beforeEach(function() {
+      this.inputElement = $("#autodiv #user_activity_ids_autocomplete");
+    });
+
+    it("gives the input element the proper type", function() {
+      expect(this.inputElement).toHaveAttr("type", "text");
+    });
+
+    it("gives the input element the proper value", function() {
+      expect(this.inputElement).toHaveAttr("value", "");
+    });
+
+    it("gives the input element an add button", function() {
+      var addbutton = $("#autodiv a#user_activity_ids_add_button");
+    });
+  });
+
+  
 });
