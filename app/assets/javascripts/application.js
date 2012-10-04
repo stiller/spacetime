@@ -12,11 +12,12 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require moment
 //= require backbone/time_travel
 //= require_tree .
 
 activityData = {1: "Hiking", 2: "Changing History",
-  3: "Baseball", 4: "Programming"}
+  3: "Baseball", 4: "Programming"};
 
 $(function() {
   initializeAutocompleteSelector({

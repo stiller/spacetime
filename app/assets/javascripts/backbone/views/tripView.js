@@ -8,5 +8,9 @@ TimeTravel.Views.TripView = Backbone.View.extend({
   render: function() {
     this.$el.html(TimeTravel.template('tripViewTemplate').render(this.model.attributes));
     return this;
+  },
+
+  formatDate: function(aMoment) {
+    return aMoment.format("MMMM D, YYYY");
   }
 });
