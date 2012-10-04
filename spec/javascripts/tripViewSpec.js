@@ -21,7 +21,7 @@ describe("with a trip view", function() {
       result = this.tripView.presentTrip();
       expect(result.startDateDisplay).toEqual("May 17, 1620");
       expect(result.endDateDisplay).toEqual("November 21, 1620");
-      expect(result.priceDisplay).toEqual("$1204.00")
+      expect(result.priceDisplay).toEqual("$1204.00");
     });
     //##prepared
 
@@ -43,6 +43,32 @@ describe("with a trip view", function() {
     });
     //##templateChanged
 
-  })
+  });
 
+  describe("toggle behavior", function() {
+    it("shows the details on a click", function() {
+      this.tripView.render();
+      $el = this.tripView.$el;
+      $el.find(".trip_detail_link").click();
+      expect($el.find(".trip_details")).not.toHaveClass("hidden");
+    });
+  });
+
+  describe("uses the display details behavior", function() {
+    it("hides details given state", function() {
+      this.tripView.model.set({'detailsDisplayed': false});
+      this.tripView.render();
+      var $el = this.tripView.$el;
+      expect($el.find(".trip_details")).toHaveClass("hidden");
+      expect($el.find(".trip_detail_link")).toHaveText("Show Details");
+    });
+
+    it("shows details given state", function() {
+      this.tripView.model.set({'detailsDisplayed': true});
+      this.tripView.render();
+      var $el = this.tripView.$el;
+      expect($el.find(".trip_details")).not.toHaveClass("hidden");
+      expect($el.find(".trip_detail_link")).toHaveText("Hide Details");
+    });
+  });
 });
